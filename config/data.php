@@ -5,5 +5,5 @@
 
   $user2 = 'grupo80';
   $password2 = 'grupo80';
-  $database2Name = 'grupo80e2';
+  $database2Name = 'grupo80e3';
 ?>

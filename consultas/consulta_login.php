@@ -2,25 +2,32 @@
 
 <body>
 <?php
+session_start();
+
 require("../config/conexion.php");
 
-$username = $_POST['username'];
+$id = $_POST['id'];
 $password = $_POST['password'];
 
-$query = "SELECT * FROM usuarios WHERE name = :username AND password = :password";
+$query = "SELECT * FROM usuarios WHERE id = :id AND password = :password";
 $result = $db2->prepare($query);
-$result->bindParam(':username', $username);
+$result->bindParam(':id', $id);
 $result->bindParam(':password', $password);
 $result->execute();
 
-$user = $statement->fetch(PDO::FETCH_ASSOC);
+$user = $result->fetch(PDO::FETCH_ASSOC);
 
 if ($user) {
-  if ($user['type'] == 'admin') {
-    header('Location: admin.php');
+  if ($user['tipo'] == 'admin') {
+    $_SESSION['tipo'] = 'admin';
+    $_SESSION['user_id'] = $user['id']; 
+    header('Location: ../admin.php');
     exit();
-  } elseif ($user['type'] == 'client') {
-    header('Location: client-dashboard.php');
+  } elseif ($user['tipo'] == 'cliente') {
+    $_SESSION['tipo'] = 'cliente';
+    $_SESSION['user_id'] = $user['id'];
+    echo"Logged in"; 
+    header('Location: ../cliente-dashboard.php');
     exit();
   }
 } else {
