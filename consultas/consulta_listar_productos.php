@@ -9,6 +9,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $statement->bindParam(':nombre', $nombre);
     $statement->execute();
 
-    $prodcutos = $statement->fetchAll(PDO::FETCH_COLUMN);
+    $productos = $statement->fetchAll(PDO::FETCH_COLUMN);
 }
 ?>
