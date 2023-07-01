@@ -6,12 +6,12 @@ require("../config/conexion.php");
     $producto = $_POST['productoDropdown2'];
     $stock = $_POST['stock'];
 
-    $query = "SELECT actualizarStock(:tienda, :producto, :stock, :categoria);";
+    $query = "SELECT actualizarStock($tienda, $producto, $stock, $categoria);";
     $statement = $db1->prepare($query);
-    $statement->bindParam(':tienda', $tienda);
-    $statement->bindParam(':producto', $producto);
-    $statement->bindParam(':stock', $stock);
-    $statement->bindParam(':categoria', $category);
+    //$statement->bindParam(':tienda', $tienda);
+    //$statement->bindParam(':producto', $producto);
+    //$statement->bindParam(':stock', $stock);
+    //$statement->bindParam(':categoria', $categoria);
     $statement->execute();
 
 ?>
