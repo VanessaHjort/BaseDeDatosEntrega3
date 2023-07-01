@@ -2,7 +2,7 @@
 require("../config/conexion.php");
 
     $tienda = $_POST['tiendaDropdown2'];
-    $category = $_POST['categoriaDropdown2'];
+    $categoria = $_POST['categoriaDropdown2'];
     $producto = $_POST['productoDropdown2'];
     $stock = $_POST['stock'];
 
